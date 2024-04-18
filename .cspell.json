@@ -1,0 +1,45 @@
+{
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+    "version": "0.2",
+    "language": "en-GB",
+    "enabledLanguageIds": ["*"],
+    "overrides": [
+      {
+        "filename": "{*.cmd,*.cs}",
+        "language": "en-US",
+        "enabled": true
+      },
+      {
+        "filename": "{.cspell.json,*.svg,package-lock.json}",
+        "enabled": false
+      },
+      {
+        "filename": ".gitlab-ci.yml",
+        "words": [
+          "nologo",
+          "cobertura",
+          "opencover"
+        ]
+      }
+    ],
+    "ignorePaths": [
+      ".gitattributes",
+      ".gitignore",
+      "cspell.json",
+      "**/packages.lock.json",
+      "**/.gitignore",
+      "**/.vscode/**",
+      "**/bin/**",
+      "**/obj/**",
+      "**/node_modules/**",
+      "*.{png,jpg,pdf}",
+      "*.csproj"
+    ],
+    "words": [
+      "cref",
+      "v'VVV",
+      "ASPNETCORE",
+      "Hsts",
+      "Swashbuckle"
+    ]
+  }

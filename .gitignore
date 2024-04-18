@@ -1,0 +1,11 @@
+.sonarqube/
+node_modules/
+obj/
+bin/
+.vs/
+
+yarn.lock
+package-lock.json
+coverage.opencover.xml
+*.csproj.user
+*.pubxml.user

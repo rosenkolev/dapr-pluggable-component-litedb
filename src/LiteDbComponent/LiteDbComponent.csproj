@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+	  <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disabled</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapr.PluggableComponents.AspNetCore" Version="0.2.0" />
+	<PackageReference Include="LiteDB" Version="5.0.19" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,35 @@
+ame: build
+
+on:
+  release:
+    types: [unpublished]
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+    # - name: Restore dependencies
+    #   run: dotnet restore src/
+    # - name: Build
+    #   run: dotnet build src/ --no-restore
+    - name: Build the Docker image
+      run: docker build src/LiteDbComponent --tag rosenkolev/dapr-pluggable-component-litedb:${{ github.event.release.tag_name }} --tag rosenkolev/dapr-pluggable-component-litedb:latest
+    - uses: docker/login-action@v3.0.0
+      with:
+        username: rosenkolev
+        password: ${{ secrets.DOCKER_SECRET }}
+    - name: Push the Docker image
+      run: docker push -a rosenkolev/dopless
+    - name:  Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.event.release.tag_name }}
+          tag_name: ${{ github.event.release.tag_name }}
