@@ -10,7 +10,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["LiteDbComponent.csproj", "app/"]
 RUN dotnet restore "app/LiteDbComponent.csproj"
-COPY . .
+COPY . app/
 WORKDIR "/src/app"
 RUN dotnet build "LiteDbComponent.csproj" -c Release -o /app/build
 
